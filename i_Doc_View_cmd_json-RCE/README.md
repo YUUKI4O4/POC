@@ -48,3 +48,9 @@ options:
 ### 修复建议  
 1.联系相关软件厂商更新至最新安全版本。  
 2.临时屏蔽system/cmd.json接⼝  
+
+### Suricata rules  
+```
+alert http any any -> any any (msg:"i Doc View cmd.json RCE"; flow:established,to_server; flowbits:set,I_Doc_View; content:"get";http_method;nocase; content:"/system/cmd.json";http_uri;fast_pattern;nocase; content:"cmd=";http_uri;nocase; pcre:"/cmd=.*(id|whoami|exec|echo|>|&)/Ui"; reference:url,https://github.com/YUUKI4O4/POC/tree/main/i_Doc_View_cmd_json-RCE; classtype:web-rce; metadata:created_at 2023-12-22,updated_at 2023-12-22,creater:YUUKI4O4; sid:1; rev:1;)
+alert http any any -> any any (msg:"i Doc View cmd.json RCE success"; flow:established,from_server; flowbits:isset,I_Doc_View; content:"200";http_stat_code; content:" application/json";nocase;http_header; content:"{";nocase;http_server_body; content:"data";nocase;http_server_body; pcre:"/\;<br />.*<br />&/Qi"; reference:url,https://github.com/YUUKI4O4/POC/tree/main/i_Doc_View_cmd_json-RCE; classtype:web-rce; metadata:created_at 2023-12-22,updated_at 2023-12-22,creater:YUUKI4O4; sid:2; rev:1;)
+```
