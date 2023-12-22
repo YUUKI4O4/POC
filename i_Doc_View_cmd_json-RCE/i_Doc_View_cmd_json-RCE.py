@@ -98,7 +98,7 @@ def RCE(url, cmd): # 漏洞利用 RCE
         return msg
 
 def main():
-    parser = argparse.ArgumentParser(description="### I Doc View Online Document Preview System cms.json has RCE vulnerability. ###")
+    parser = argparse.ArgumentParser(description="### I Doc View Online Document Preview System cmd.json has RCE vulnerability. ###")
 
     parser.add_argument("-t", "--target_collection", action="store_true", help="Perform target collection")
     parser.add_argument("-r", "--multi_objective_testing", metavar="FILE", help="Perform multi-objective testing. e.g:python i_Doc_View_cmd_json-RCE.py -r ./url.txt")
