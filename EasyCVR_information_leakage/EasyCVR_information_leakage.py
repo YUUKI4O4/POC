@@ -22,7 +22,7 @@ def UA():
 
 def Target_collection(filename): # 目标收集
     urls = [
-        "https://fofa.info/api/v1/search/all?email=XXXXXXX&key=XXXXXXXXXX&qbase64=dGl0bGU9IkVhc3lDVlIi&size=9999" # title="EasyCVR"
+        "https://fofa.info/api/v1/search/all?email=xxxxxxxxxxxx&key=xxxxxxxxxxxxxx&qbase64=dGl0bGU9IkVhc3lDVlIi&size=9999" # title="EasyCVR"
         # 自行配置fofa邮箱和api key
     ]
 
@@ -88,11 +88,11 @@ def Multi_objective_testing(file): # 多目标检查
 
 
 def main():
-    parser = argparse.ArgumentParser(description="### I Doc View Online Document Preview System cmd.json has RCE vulnerability. ###")
+    parser = argparse.ArgumentParser(description="### EasyCVR video management platform has user information leakage. ###")
 
     parser.add_argument("-t", "--target_collection", action="store_true", help="Perform target collection")
-    parser.add_argument("-r", "--multi_objective_testing", metavar="FILE", help="Perform multi-objective testing. e.g:python i_Doc_View_cmd_json-RCE.py -r ./url.txt")
-    parser.add_argument("-u", "--single_objective_testing", metavar="URL", help="Perform single-objective testing. e.g:python i_Doc_View_cmd_json-RCE.py -u http://xxx.xxx.xxx")
+    parser.add_argument("-r", "--multi_objective_testing", metavar="FILE", help="Perform multi-objective testing. e.g:python EasyCVR_information_leakage.py -r ./url.txt")
+    parser.add_argument("-u", "--single_objective_testing", metavar="URL", help="Perform single-objective testing. e.g:python EasyCVR_information_leakage.py -u http://xxx.xxx.xxx")
 
 
     args = parser.parse_args()
