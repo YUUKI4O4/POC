@@ -7,8 +7,8 @@
 ### 指纹识别  
 fofa: app="Jinher-OA"  
 
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Jinhe_OA_jc6_GetAttOut_SQL_injection/1.png)
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Jinhe_OA_jc6_GetAttOut_SQL_injection/2.png)
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E9%87%91%E5%92%8C/Jinhe_OA_jc6_GetAttOut_SQL_injection/1.png)
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E9%87%91%E5%92%8C/Jinhe_OA_jc6_GetAttOut_SQL_injection/2.png)
 
 ### 漏洞利用  
 ```
@@ -49,6 +49,6 @@ options:
 
 ### Suricata rules  
 ```
-alert http any any -> any any (msg:"Jinhe OA jc6 GetAttOut SQL injection vulnerability."; flow:established,to_server; flowbits:set,Jinhe_OA_jc6_GetAttOut_SQL_injection; content:"post";http_method;nocase; content:"/jc6/JHSoft.WCF/TEST/GetAttOut";http_uri;fast_pattern;nocase; content:"'";nocase;http_client_body; content:"--";nocase;http_client_body;distance:0; pcre:"/(?:S(?:HOW.+(?:C(?:HARACTER.+SET|UR(DATE|TIME))|(?:VARI|T)ABLES)|ELECT.+(?:FROM|USER))|U(?:NION.+SELEC|PDATE.+SE)T|DELETE.+FROM|INSERT.+INTO)/Pi"; reference:url,https://github.com/YUUKI4O4/POC/tree/main/Jinhe_OA_jc6_GetAttOut_SQL_injection; classtype:web-attck; metadata:created_at 2024-01-15,updated_at 2024-01-15,creater:YUUKI4O4; sid:19; rev:1;)
-alert http any any -> any any (msg:"Jinhe OA jc6 GetAttOut SQL injection vulnerability success."; flow:established,from_server; flowbits:isset,Jinhe_OA_jc6_GetAttOut_SQL_injection; content:"200";http_stat_code; content:"attOEndTime";http_server_body;nocase; content:"attOBeginTime";http_server_body;nocase; content:"attOReason";http_server_body;nocase; content:"success";http_server_body;nocase; content:"1";http_server_body;nocase;distance:0; reference:url,https://github.com/YUUKI4O4/POC/tree/main/Jinhe_OA_jc6_GetAttOut_SQL_injection; classtype:web-attck; metadata:created_at 2024-01-15,updated_at 2024-01-15,creater:YUUKI4O4; sid:20; rev:1;)
+alert http any any -> any any (msg:"Jinhe OA jc6 GetAttOut SQL injection vulnerability."; flow:established,to_server; flowbits:set,Jinhe_OA_jc6_GetAttOut_SQL_injection; content:"post";http_method;nocase; content:"/jc6/JHSoft.WCF/TEST/GetAttOut";http_uri;fast_pattern;nocase; content:"'";nocase;http_client_body; content:"--";nocase;http_client_body;distance:0; pcre:"/(?:S(?:HOW.+(?:C(?:HARACTER.+SET|UR(DATE|TIME))|(?:VARI|T)ABLES)|ELECT.+(?:FROM|USER))|U(?:NION.+SELEC|PDATE.+SE)T|DELETE.+FROM|INSERT.+INTO)/Pi"; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E9%87%91%E5%92%8C/Jinhe_OA_jc6_GetAttOut_SQL_injection; classtype:web-attck; metadata:created_at 2024-01-15,updated_at 2024-01-15,creater:YUUKI4O4; sid:19; rev:1;)
+alert http any any -> any any (msg:"Jinhe OA jc6 GetAttOut SQL injection vulnerability success."; flow:established,from_server; flowbits:isset,Jinhe_OA_jc6_GetAttOut_SQL_injection; content:"200";http_stat_code; content:"attOEndTime";http_server_body;nocase; content:"attOBeginTime";http_server_body;nocase; content:"attOReason";http_server_body;nocase; content:"success";http_server_body;nocase; content:"1";http_server_body;nocase;distance:0; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E9%87%91%E5%92%8C/Jinhe_OA_jc6_GetAttOut_SQL_injection; classtype:web-attck; metadata:created_at 2024-01-15,updated_at 2024-01-15,creater:YUUKI4O4; sid:20; rev:1;)
 ```
