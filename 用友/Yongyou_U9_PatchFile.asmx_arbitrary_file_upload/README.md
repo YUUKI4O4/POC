@@ -6,7 +6,7 @@ U9 cloud聚焦中型和中大型制造企业，全面支持业财税档一体化
 
 ### 指纹识别  
 fofa: title=="        U9-登录    "  
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/0.png)  
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E7%94%A8%E5%8F%8B/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/0.png)  
 
 ### 漏洞利用  
 ```
@@ -29,9 +29,9 @@ Content-Type: text/xml; charset=utf-8
 </soap:Envelope>
 
 ```
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/1.png)  
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/2.png)  
-![Image text](https://github.com/YUUKI4O4/POC/blob/main/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/3.png)  
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E7%94%A8%E5%8F%8B/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/1.png)  
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E7%94%A8%E5%8F%8B/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/2.png)  
+![Image text](https://github.com/YUUKI4O4/POC/blob/main/%E7%94%A8%E5%8F%8B/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload/3.png)  
 
 ### 测试和利用脚本  
 ```
@@ -59,6 +59,6 @@ options:
 
 ### Suricata rules  
 ```
-alert http any any -> any any (msg:"Yongyou U9 PatchFile.asmx arbitrary file upload"; flow:established,to_server; flowbits:set,Yongyou_U9_PatchFile; content:"post";http_method;nocase; content:"/CS/Office/AutoUpdates/PatchFile.asmx?op=SaveFile";http_uri;fast_pattern;nocase; content:"<?xml";nocase;http_client_body;startswith; content:"<binData>";nocase;http_client_body; content:"<fileName>";nocase;http_client_body; pcre:"/<fileName>[^\.]+?\.(jsp|asp|aspx|txt|php|exe|py|dll)/Pi"; reference:url,https://github.com/YUUKI4O4/POC/tree/main/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload; classtype:web-attck; metadata:created_at 2024-01-31,updated_at 2024-01-31,creater:YUUKI4O4; sid:27; rev:1;)
-alert http any any -> any any (msg:"Yongyou U9 PatchFile.asmx arbitrary file upload maybe success"; flow:established,from_server; flowbits:isset,Yongyou_U9_PatchFile; content:"415";http_stat_code; reference:url,https://github.com/YUUKI4O4/POC/tree/main/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload; classtype:web-attck; metadata:created_at 2024-01-31,updated_at 2024-01-31,creater:YUUKI4O4; sid:28; rev:1;)
+alert http any any -> any any (msg:"Yongyou U9 PatchFile.asmx arbitrary file upload"; flow:established,to_server; flowbits:set,Yongyou_U9_PatchFile; content:"post";http_method;nocase; content:"/CS/Office/AutoUpdates/PatchFile.asmx?op=SaveFile";http_uri;fast_pattern;nocase; content:"<?xml";nocase;http_client_body;startswith; content:"<binData>";nocase;http_client_body; content:"<fileName>";nocase;http_client_body; pcre:"/<fileName>[^\.]+?\.(jsp|asp|aspx|txt|php|exe|py|dll)/Pi"; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E7%94%A8%E5%8F%8B/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload; classtype:web-attck; metadata:created_at 2024-01-31,updated_at 2024-01-31,creater:YUUKI4O4; sid:27; rev:1;)
+alert http any any -> any any (msg:"Yongyou U9 PatchFile.asmx arbitrary file upload maybe success"; flow:established,from_server; flowbits:isset,Yongyou_U9_PatchFile; content:"415";http_stat_code; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E7%94%A8%E5%8F%8B/Yongyou_U9_PatchFile.asmx_arbitrary_file_upload; classtype:web-attck; metadata:created_at 2024-01-31,updated_at 2024-01-31,creater:YUUKI4O4; sid:28; rev:1;)
 ```
