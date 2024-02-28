@@ -52,5 +52,6 @@ options:
 
 ### Suricata rules  
 ```
-
+alert http any any -> any any (msg:"Yi Bao OA downloadfile interface has an arbitrary file reading vulnerability."; flow:established,to_server; flowbits:set,YiBaoOA_downloadfile; content:"post";http_method;nocase; content:"/api/files/DownloadFile";http_uri;fast_pattern;nocase; content:"requestFileName";http_client_body;nocase; content:"../";nocase;http_client_body;distance:0; content:"pathType";nocase;http_client_body; content:"startPosition";nocase;http_client_body; content:"bufferSize";nocase;http_client_body; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E6%98%93%E5%AE%9D/yibaoOA_DownloadFile_readFile; classtype:web-rce; metadata:created_at 2024-02-28,updated_at 2024-02-28,creater:YUUKI4O4; sid:XX; rev:1;)
+alert http any any -> any any (msg:"Yi Bao OA downloadfile interface has an arbitrary file reading vulnerability success."; flow:established,from_server; flowbits:isset,YiBaoOA_downloadfile; content:"200";http_stat_code; content:"Content-Type: application/json";nocase; content:"data";nocase;http_server_body; content:"code";nocase;http_server_body; content:"message";nocase;http_server_body; content:"success";nocase;http_server_body;distance:0; content:"is_succeed";nocase;http_server_body; content:"true";nocase;http_server_body;distance:0; reference:url,https://github.com/YUUKI4O4/POC/tree/main/%E6%98%93%E5%AE%9D/yibaoOA_DownloadFile_readFile; classtype:web-rce; metadata:created_at 2024-02-28,updated_at 2024-02-28,creater:YUUKI4O4; sid:XX; rev:1;)
 ```
